@@ -2,15 +2,12 @@
 name = "americandex"
 version = "3.0.2"
 description = "Customizable Discord bot to collect and trade countryballs."
-authors = [
-    { name = 'Auguste "laggron42" Charpentier', email = "laggron42@americandex.com" },
-    { name = 'Jamie "flare" McGuinness', email = "flare@americandex.com" },
-]
+authors = []
 license = "MIT"
 license-files = [
     "LICENSE"
 ]
-readme = "README.md"
+
 requires-python = ">=3.14"
 dependencies = [
     # asyncio
