@@ -12,9 +12,9 @@ ENV PYTHONFAULTHANDLER=1 \
     UV_COMPILE_BYTECODE=1 \
     UV_LINK_MODE=copy \
     VIRTUAL_ENV=/opt/venv \
-    BALLSDEX_LOG_DIR=/var/log/ballsdex \
-    BALLSDEXBOT_EXTRA_TOML=/code/admin_panel/config/extra.toml \
-    STATIC_ROOT=/var/www/ballsdex/static \
+    AMERICANDEX_LOG_DIR=/var/log/americandex \
+    AMERICANDEXBOT_EXTRA_TOML=/code/admin_panel/config/extra.toml \
+    STATIC_ROOT=/var/www/americandex/static \
     DJANGO_SETTINGS_MODULE=admin_panel.settings
 
 # Pillow runtime dependencies
@@ -26,9 +26,9 @@ RUN apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/c
     libimagequant-dev libxcb-dev libpng-dev libavif-dev
 
 ARG UID GID
-RUN addgroup -S ballsdex -g ${GID:-1000} && \
-    adduser -S ballsdex -G ballsdex -u ${UID:-1000} && \
-    mkdir -p -m 770 ${BALLSDEX_LOG_DIR} && chown ballsdex:ballsdex ${BALLSDEX_LOG_DIR}
+RUN addgroup -S americandex -g ${GID:-1000} && \
+    adduser -S americandex -G americandex -u ${UID:-1000} && \
+    mkdir -p -m 770 ${AMERICANDEX_LOG_DIR} && chown americandex:americandex ${AMERICANDEX_LOG_DIR}
 WORKDIR /code
 
 FROM base AS builder-base
@@ -41,9 +41,9 @@ COPY uv.lock pyproject.toml /code/
 RUN --mount=type=cache,target=/root/.cache/ \
     uv venv $VIRTUAL_ENV && \
     uv sync --locked --no-install-project --no-editable --active
-COPY --parents admin_panel ballsdex LICENSE README.md /code/
+COPY --parents admin_panel americandex LICENSE README.md /code/
 RUN --mount=type=cache,target=/root/.cache/ \
-    uv sync --locked --no-editable --active --reinstall-package ballsdex && \
+    uv sync --locked --no-editable --active --reinstall-package americandex && \
     cd admin_panel && django-admin collectstatic --no-input
 
 # this is running in a separate layer to allow bots with different extra packages to run on the same base layer
@@ -52,9 +52,9 @@ RUN --mount=type=cache,target=/root/.cache/ \
     if [ -f config/extra.toml ]; then uv pip install --reinstall $(python3 bdextra.py config/extra.toml); fi
 
 FROM nginx:1.29.3-alpine3.22 AS proxy
-COPY --from=builder-base /var/www/ballsdex/static /var/www/ballsdex/static
+COPY --from=builder-base /var/www/americandex/static /var/www/americandex/static
 
 FROM base AS production
 COPY --from=builder-base /opt/venv /opt/venv
 WORKDIR /code/admin_panel
-USER ballsdex
+USER americandex

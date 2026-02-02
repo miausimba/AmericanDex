@@ -64,7 +64,7 @@ Once you are logged in, you will see the panel's home page, with multiple option
 
 The "Authentication and authorization" section should be ignored unless you serve the panel on the internet, it contains the user accounts and permission groups. "Python social auth" should also be ignored and not tampered with, it contains the Discord OAuth2 data that allows you to login.
 
-The "Ballsdex models" section is what you are looking for, it has all the models from the bot:
+The "Americandex models" section is what you are looking for, it has all the models from the bot:
 
 - `BallInstances` represents instances of a ball that were obtained by a player. You can use that to give balls to players, delete then, modify attributes or look at its trade history. Searching via hexadecimal ID is supported.
 - `Balls` is where you create your countryballs (or whatever your bot is themed after). It's the first thing you want to visit, more details below.
@@ -75,7 +75,7 @@ The "Ballsdex models" section is what you are looking for, it has all the models
 - `Trades` has the list of all trades performed. Clicking on a trade will show all of its contents.
 
 !!! info
-    The admin panel will always use the Ballsdex vocabulary (countryballs). If you have set a custom name for your bot or your collectibles, don't worry, they will be used throughout the bot itself.
+    The admin panel will always use the Americandex vocabulary (countryballs). If you have set a custom name for your bot or your collectibles, don't worry, they will be used throughout the bot itself.
 
 ### Creating your first countryball
 
@@ -106,7 +106,7 @@ Then you have a section for assets. You must upload two files:
     
     **Violating licenses exposes you to a DMCA complaint, which can lead to both your bot and your own account getting banned from Discord.**
     
-    All art used by Ballsdex is licensed to the Ballsdex Team and cannot be reused by other bots without permission from their artists. However, the MIT-licensed files included in the bot repository (such as the default backgrounds) are free to use.
+    All art used by Americandex is licensed to the Americandex Team and cannot be reused by other bots without permission from their artists. However, the MIT-licensed files included in the bot repository (such as the default backgrounds) are free to use.
 
 #### Ability
 

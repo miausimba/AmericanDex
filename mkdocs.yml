@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: Ballsdex Discord bot
-site_url: https://wiki.ballsdex.com
-repo_url: https://github.com/Ballsdex-Team/BallsDex-DiscordBot
+site_name: Americandex Discord bot
+site_url: https://wiki.americandex.com
+repo_url: https://github.com/Americandex-Team/AmericanDex-DiscordBot
 
 copyright: Copyright &copy; 2022 - 2026 Auguste "El Laggron" Charpentier
 
@@ -51,8 +51,8 @@ nav:
   - Selfhosting:
       - selfhosting/index.md
       - Installation:
-          - selfhosting/installation/installing-ballsdex.md
-          - selfhosting/installation/installing-ballsdex-no-docker.md
+          - selfhosting/installation/installing-americandex.md
+          - selfhosting/installation/installing-americandex-no-docker.md
       - Admin panel:
           - selfhosting/admin-panel/getting-started.md
           - selfhosting/admin-panel/exposing-to-internet.md
@@ -142,4 +142,4 @@ extra_javascript:
 watch:
   - ./docs
   - ./admin_panel
-  - ./ballsdex
+  - ./americandex

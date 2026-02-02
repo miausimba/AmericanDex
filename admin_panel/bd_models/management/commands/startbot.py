@@ -15,12 +15,12 @@ from django.core.management.base import BaseCommand, CommandError, CommandParser
 from rich import print
 from sentry_sdk.integrations.asyncio import AsyncioIntegration
 
-from ballsdex import __version__ as bot_version
-from ballsdex.core.bot import BallsDexBot
+from americandex import __version__ as bot_version
+from americandex.core.bot import AmericanDexBot
 from settings.models import load_settings, settings
 
 discord.voice_client.VoiceClient.warn_nacl = False  # disable PyNACL warning
-log = logging.getLogger("ballsdex")
+log = logging.getLogger("americandex")
 
 
 class CLIFlags(TypedDict):
@@ -130,8 +130,8 @@ def patch_gateway(proxy_url: str):
         ProductionReconnectWebSocket.__init__
     )
     discord.utils._ActiveDecompressionContext = _ZlibDecompressionContext
-    BallsDexBot.is_ws_ratelimited = is_ws_ratelimited
-    BallsDexBot.before_identify_hook = before_identify_hook
+    AmericanDexBot.is_ws_ratelimited = is_ws_ratelimited
+    AmericanDexBot.before_identify_hook = before_identify_hook
 
 
 def patch_loggers_cluster(cluster_id: int):
@@ -155,7 +155,7 @@ def patch_loggers_cluster(cluster_id: int):
         formatter._style._fmt = "[{asctime}] #%d {levelname} {name}: {message}" % cluster_id
 
 
-async def shutdown_handler(bot: BallsDexBot, signal_type: str | None = None):
+async def shutdown_handler(bot: AmericanDexBot, signal_type: str | None = None):
     if signal_type:
         log.info(f"Received {signal_type}, stopping the bot...")
     else:
@@ -175,7 +175,7 @@ async def shutdown_handler(bot: BallsDexBot, signal_type: str | None = None):
         sys.exit(0 if signal_type else 1)
 
 
-def global_exception_handler(bot: BallsDexBot, loop: asyncio.AbstractEventLoop, context: dict):
+def global_exception_handler(bot: AmericanDexBot, loop: asyncio.AbstractEventLoop, context: dict):
     """
     Logs unhandled exceptions in other tasks
     """
@@ -188,7 +188,7 @@ def global_exception_handler(bot: BallsDexBot, loop: asyncio.AbstractEventLoop, 
     )
 
 
-def bot_exception_handler(bot: BallsDexBot, bot_task: asyncio.Future):
+def bot_exception_handler(bot: AmericanDexBot, bot_task: asyncio.Future):
     """
     This is set as a done callback for the bot
 
@@ -292,10 +292,10 @@ class Command(BaseCommand):
                 log.error("Token not found!")
                 raise CommandError("You must provide a token inside the config.yml file.")
 
-            db_url = os.environ.get("BALLSDEXBOT_DB_URL", None)
+            db_url = os.environ.get("AMERICANDEXBOT_DB_URL", None)
             if not db_url:
                 log.error("Database URL not found!")
-                raise CommandError("You must provide a DB URL with the BALLSDEXBOT_DB_URL env var.")
+                raise CommandError("You must provide a DB URL with the AMERICANDEXBOT_DB_URL env var.")
 
             clustering_args = [
                 bool(x)
@@ -322,7 +322,7 @@ class Command(BaseCommand):
 
             prefix = settings.prefix
 
-            bot = BallsDexBot(
+            bot = AmericanDexBot(
                 command_prefix=when_mentioned_or(prefix),
                 dev=options["dev"],  # type: ignore
                 shard_count=options["shard_count"],

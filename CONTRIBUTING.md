@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for contributing to this repo! This is a short guide to set you up for running Ballsdex in
+Thanks for contributing to this repo! This is a short guide to set you up for running Americandex in
 a development environment, with some tips on the code structure.
 
 ## Setting up the environment
@@ -34,7 +34,7 @@ environment variables exported:
 
 ```bash
 poetry shell
-export BALLSDEXBOT_DB_URL="postgres://ballsdex:defaultballsdexpassword@localhost:5432/ballsdex"
+export AMERICANDEXBOT_DB_URL="postgres://americandex:defaultamericandexpassword@localhost:5432/americandex"
 ```
 
 If needed, feel free to change the host, port, user or password of the database or redis server.
@@ -42,10 +42,10 @@ If needed, feel free to change the host, port, user or password of the database 
 ### Starting the bot
 
 ```bash
-python3 -m ballsdex --dev --debug
+python3 -m americandex --dev --debug
 ```
 
-You can do `python3 -m ballsdex -h` to see the available options.
+You can do `python3 -m americandex -h` to see the available options.
 
 ### Starting the admin panel
 
@@ -89,7 +89,7 @@ Their configurations are already written in `pyproject.toml`, so it should work 
 
 If you are modifying models definition, you need migrations to update the database schema.
 
-First, synchronize your changes between `ballsdex/core/models.py` and
+First, synchronize your changes between `americandex/core/models.py` and
 `admin_panel/bd_models/models.py`, they must be identical!
 
 Then you can run `python3 manage.py makemigrations` to generate a migration file. Re-read its

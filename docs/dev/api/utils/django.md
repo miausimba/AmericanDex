@@ -1,3 +1,3 @@
 # Database
 
-::: ballsdex.core.utils.django
+::: americandex.core.utils.django

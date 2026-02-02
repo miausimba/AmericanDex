@@ -8,7 +8,7 @@
             "name": "Admin panel",
             "presentation": {
                 "hidden": false,
-                "group": "Ballsdex",
+                "group": "Americandex",
                 "order": 3
             },
             "type": "debugpy",
@@ -23,7 +23,7 @@
             "module": "uvicorn",
             "django": true,
             "env": {
-                "BALLSDEXBOT_DB_URL": "postgres://ballsdex:defaultballsdexpassword@localhost:5432/ballsdex",
+                "AMERICANDEXBOT_DB_URL": "postgres://americandex:defaultamericandexpassword@localhost:5432/americandex",
                 "DJANGO_SETTINGS_MODULE": "admin_panel.settings.dev"
             },
             "justMyCode": false
@@ -32,18 +32,18 @@
             "name": "Bot",
             "presentation": {
                 "hidden": false,
-                "group": "Ballsdex",
+                "group": "Americandex",
                 "order": 1
             },
             "type": "debugpy",
             "request": "launch",
-            "module": "ballsdex",
+            "module": "americandex",
             "args": [
                 "--dev",
                 "--debug",
             ],
             "env": {
-                "BALLSDEXBOT_DB_URL": "postgres://ballsdex:defaultballsdexpassword@localhost:5432/ballsdex",
+                "AMERICANDEXBOT_DB_URL": "postgres://americandex:defaultamericandexpassword@localhost:5432/americandex",
                 "DJANGO_SETTINGS_MODULE": "admin_panel.settings.dev"
             },
             "justMyCode": false
@@ -52,19 +52,19 @@
             "name": "Bot (skip command sync)",
             "presentation": {
                 "hidden": false,
-                "group": "Ballsdex",
+                "group": "Americandex",
                 "order": 2
             },
             "type": "debugpy",
             "request": "launch",
-            "module": "ballsdex",
+            "module": "americandex",
             "args": [
                 "--dev",
                 "--debug",
                 "--skip-tree-sync"
             ],
             "env": {
-                "BALLSDEXBOT_DB_URL": "postgres://ballsdex:defaultballsdexpassword@localhost:5432/ballsdex",
+                "AMERICANDEXBOT_DB_URL": "postgres://americandex:defaultamericandexpassword@localhost:5432/americandex",
                 "DJANGO_SETTINGS_MODULE": "admin_panel.settings.dev"
             },
             "justMyCode": false

@@ -1,6 +1,6 @@
 # Writing custom packages
 
-This tutorial will explain you how to extend Ballsdex with additional commands and features
+This tutorial will explain you how to extend Americandex with additional commands and features
 the recommended way.
 
 ## Getting a good developer environment
@@ -14,22 +14,22 @@ Before getting to coding, you want to have a good environment to code and test q
     [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) as well.
     
     !!! info
-        You can use the editor of your choice, but Ballsdex is pre-configured for VScode and will
+        You can use the editor of your choice, but Americandex is pre-configured for VScode and will
         give you the best out-of-the-box experience.
 
-2.  Install and configure Ballsdex locally. I recommend that you follow the
-    [Dockerless install](/selfhosting/installation/installing-ballsdex-no-docker/) to enable
+2.  Install and configure Americandex locally. I recommend that you follow the
+    [Dockerless install](/selfhosting/installation/installing-americandex-no-docker/) to enable
     VScode's Python debugger, but Docker is also fine.
 
     1.  If you have followed the Docker installation, we will also configure a local environment
         for autocompletion and editor experience.
         First, [install uv](https://docs.astral.sh/uv/getting-started/installation/)
-    2.  Open a terminal and `cd` into the Ballsdex folder
+    2.  Open a terminal and `cd` into the Americandex folder
     3.  Run `uv sync --all-extras`
 
         You may need to run this command from time to time if dependencies are updated.
 
-3.  Open a terminal, `cd` into the Ballsdex folder and run `code .` to open Visual Studio Code.
+3.  Open a terminal, `cd` into the Americandex folder and run `code .` to open Visual Studio Code.
     This also works inside WSL!
 
 4.  Now you can run the bot in debug mode
@@ -42,7 +42,7 @@ Before getting to coding, you want to have a good environment to code and test q
         ```yml
         services:
           bot:
-            command: python3 -m ballsdex --dev --debug
+            command: python3 -m americandex --dev --debug
             environment:
               - "DJANGO_SETTINGS_MODULE=admin_panel.settings.dev"
           admin-panel:
@@ -65,7 +65,7 @@ Before getting to coding, you want to have a good environment to code and test q
         export DJANGO_SETTINGS_MODULE=admin_panel.settings.dev
         
         # run the bot like this
-        python3 -m ballsdex --dev --debug
+        python3 -m americandex --dev --debug
 
         # and the admin panel like this
         uvicorn --reload admin_panel.asgi:application
@@ -73,7 +73,7 @@ Before getting to coding, you want to have a good environment to code and test q
 
         You can also use VScode's debugger by pressing F5, profiles are already registered!
 
-That's it, you're now setup to develop on Ballsdex!
+That's it, you're now setup to develop on Americandex!
 
 ## Creating your package
 
@@ -96,8 +96,8 @@ folder that makes development easier.
     version = "1.0.0"
 
     dependencies = [
-        # you can require a specific version of ballsdex here
-        "ballsdex>=3.0.0",
+        # you can require a specific version of americandex here
+        "americandex>=3.0.0",
     ]
     ```
 
@@ -142,15 +142,15 @@ This will allow you to write your own commands and listeners.
     from discord.ext import commands
 
     if TYPE_CHECKING:
-        from ballsdex.core.bot import BallsDexBot
+        from americandex.core.bot import AmericanDexBot
 
 
     class YourCog(commands.Cog):
-        def __init__(self, bot: "BallsDexBot"):
+        def __init__(self, bot: "AmericanDexBot"):
             self.bot = bot
 
         @commands.command()
-        async def hello(self, ctx: commands.Context["BallsDexBot"]):
+        async def hello(self, ctx: commands.Context["AmericanDexBot"]):
             await ctx.send("Hello World!")
     ```
 
@@ -160,10 +160,10 @@ This will allow you to write your own commands and listeners.
     from .cog import YourCog
 
     if TYPE_CHECKING:
-        from ballsdex.core.bot import BallsDexBot
+        from americandex.core.bot import AmericanDexBot
 
 
-    async def setup(bot: "BallsDexBot"):
+    async def setup(bot: "AmericanDexBot"):
         await bot.add_cog(YourCog(bot))
     ```
 
@@ -191,7 +191,7 @@ For now we will only be looking at loading your code from a developer's perspect
     1.  Create the file `config/extra.toml` and write the following contents
 
         ```toml
-        [[ballsdex.packages]]
+        [[americandex.packages]]
         location = "/code/extra/my_cool_repo"
         path = "my_cool_app"
         enabled = true
@@ -206,7 +206,7 @@ For now we will only be looking at loading your code from a developer's perspect
     1.  Create the file `config/extra.toml` and write the following contents
 
         ```toml
-        [[ballsdex.packages]]
+        [[americandex.packages]]
         location = ""  # this only matters for Docker
         path = "my_cool_app"
         enabled = true
@@ -218,7 +218,7 @@ For now we will only be looking at loading your code from a developer's perspect
 
 You should notice this appearing in your bot's logs if successful:
 ```
-2025-12-16 14:32:17 INFO     ballsdex.core.bot Packages loaded: admin, balls, guildconfig, countryballs, info, players, trade, my_cool_ext
+2025-12-16 14:32:17 INFO     americandex.core.bot Packages loaded: admin, balls, guildconfig, countryballs, info, players, trade, my_cool_ext
 ```
 
 Test the `b.hello` command somewhere in Discord and see if the bot responds!
@@ -323,7 +323,7 @@ class YourCog(commands.Cog):
     ...
 
     @app_commands.command()
-    async def profile(self, interaction: discord.Interaction["BallsDexBot"], user: discord.User | None = None):
+    async def profile(self, interaction: discord.Interaction["AmericanDexBot"], user: discord.User | None = None):
         user = user or interaction.user
         try:
             player = await Player.objects.aget(discord_id=user.id)
@@ -447,13 +447,13 @@ Once your package is ready, you can choose to publish it!
     license = "MIT"  # replace with your own license
     license-files = ["LICENSE"]
     authors = [
-        { name = "laggron42", email = "laggron42@ballsdex.com" },
+        { name = "laggron42", email = "laggron42@americandex.com" },
     ]
     readme = "README.md"
 
     dependencies = [
-        # you can require a specific version of ballsdex here
-        "ballsdex>=3.0.0",
+        # you can require a specific version of americandex here
+        "americandex>=3.0.0",
         # and extra dependencies if needed
     ]
 
@@ -502,7 +502,7 @@ Any user wishing to install your package must simply add the following contents 
 `config/extra.toml` file:
 
 ```toml
-[[ballsdex.packages]]
+[[americandex.packages]]
 location = "git+https://github.com/laggron42/my_cool_repo.git==1.0.0"
 path = "my_cool_app"
 enabled = true

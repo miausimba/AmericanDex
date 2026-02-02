@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
 
-from ballsdex.core.image_generator.image_gen import draw_card
+from americandex.core.image_generator.image_gen import draw_card
 from bd_models.models import Ball, BallInstance, Special
 
 from .utils import refresh_cache

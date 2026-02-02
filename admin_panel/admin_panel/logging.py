@@ -1,5 +1,5 @@
 """
-This file will contain various utility functions for setting up Ballsdex's logging.
+This file will contain various utility functions for setting up Americandex's logging.
 
 You will find custom objects for the standard logging library and a custom logging setup for Django's startup.
 """

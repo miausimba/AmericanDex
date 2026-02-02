@@ -11,7 +11,7 @@ SECRET_KEY = None
 ALLOWED_HOSTS = [
     "localhost"
     # place the domain of your website here
-    # "ballsdex.com"
+    # "americandex.com"
 ]
 
 # Enable connection pooling, allowing multiple concurrent connections to be made to the database and divide the load

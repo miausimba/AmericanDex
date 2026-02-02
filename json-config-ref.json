@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Ballsdex configuration",
-    "description": "Core settings for the Ballsdex Discord bot",
+    "title": "Americandex configuration",
+    "description": "Core settings for the Americandex Discord bot",
     "type": "object",
     "required": [
         "discord-token",
@@ -105,7 +105,7 @@
         "bot-name": {
             "type": "string",
             "description": "The name of the bot, used in places such as the /completion command",
-            "default": "BallsDex"
+            "default": "AmericanDex"
         },
         "players-group-cog-name": {
             "type": "string",
@@ -239,7 +239,7 @@
         "spawn-manager": {
             "$ref": "#/$defs/python-path",
             "description": "Override the default spawn manager with your own implementation. Must be an importable Python path to a SpawnManager class.",
-            "default": "ballsdex.packages.countryballs.spawn.SpawnManager"
+            "default": "americandex.packages.countryballs.spawn.SpawnManager"
         },
         "packages": {
             "type": "array",

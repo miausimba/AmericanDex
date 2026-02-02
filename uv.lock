@@ -169,7 +169,7 @@ wheels = [
 ]
 
 [[package]]
-name = "ballsdex"
+name = "americandex"
 version = "3.0.2"
 source = { editable = "." }
 dependencies = [

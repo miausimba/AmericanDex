@@ -1,10 +1,10 @@
 [project]
-name = "ballsdex"
+name = "americandex"
 version = "3.0.2"
 description = "Customizable Discord bot to collect and trade countryballs."
 authors = [
-    { name = 'Auguste "laggron42" Charpentier', email = "laggron42@ballsdex.com" },
-    { name = 'Jamie "flare" McGuinness', email = "flare@ballsdex.com" },
+    { name = 'Auguste "laggron42" Charpentier', email = "laggron42@americandex.com" },
+    { name = 'Jamie "flare" McGuinness', email = "flare@americandex.com" },
 ]
 license = "MIT"
 license-files = [
@@ -64,13 +64,13 @@ docs = [
 ]
 
 [project.scripts]
-ballsdex = "ballsdex.__main__:main"
+americandex = "americandex.__main__:main"
 
 [tool.hatch.build.targets.sdist]
 exclude = ["result"]
 
 [tool.hatch.build.targets.wheel]
-only-include = ["ballsdex", "admin_panel"]
+only-include = ["americandex", "admin_panel"]
 sources = ["admin_panel"]
 
 [build-system]
@@ -100,7 +100,7 @@ exclude = ["admin_panel/admin_panel/settings/*"]
 
 [tool.ruff.lint.isort]
 # list all django modules
-known-first-party = ["ballsdex", "bd_models", "admin_panel", "preview", "settings", "users"]
+known-first-party = ["americandex", "bd_models", "admin_panel", "preview", "settings", "users"]
 split-on-trailing-comma = false
 
 [tool.pyright]

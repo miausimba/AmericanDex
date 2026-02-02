@@ -1,6 +1,6 @@
 # Transformers
 
-::: ballsdex.core.utils.transformers
+::: americandex.core.utils.transformers
     options:
         inherited_members: true
         members:

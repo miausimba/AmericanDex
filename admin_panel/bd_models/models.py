@@ -19,8 +19,8 @@ from django.utils import timezone
 from django.utils.safestring import SafeText, mark_safe
 from django.utils.timezone import now
 
-from ballsdex.core.discord import View
-from ballsdex.core.image_generator.image_gen import draw_card
+from americandex.core.discord import View
+from americandex.core.image_generator.image_gen import draw_card
 from settings.models import settings
 
 from .enums import DonationPolicy, FriendPolicy, MentionPolicy, PrivacyPolicy, TradeCooldownPolicy
@@ -28,11 +28,11 @@ from .enums import DonationPolicy, FriendPolicy, MentionPolicy, PrivacyPolicy, T
 if TYPE_CHECKING:
     from django.db.models.fields.files import ImageFieldFile
 
-    from ballsdex.core.bot import BallsDexBot
+    from americandex.core.bot import AmericanDexBot
 
 
 def transform_media(path: str) -> str:
-    return path.replace("/static/uploads/", "").replace("/ballsdex/core/image_generator/src/", "default/")
+    return path.replace("/static/uploads/", "").replace("/americandex/core/image_generator/src/", "default/")
 
 
 def image_display(image_link: str) -> SafeText:
@@ -437,7 +437,7 @@ class BallInstance(models.Model):
         *,
         short: bool = False,
         include_emoji: bool = False,
-        bot: "BallsDexBot | None" = None,
+        bot: "AmericanDexBot | None" = None,
         is_trade: bool = False,
     ) -> str:
         text = self.short_description(is_trade=is_trade)
@@ -461,7 +461,7 @@ class BallInstance(models.Model):
         return buffer
 
     async def prepare_for_message(
-        self, interaction: discord.Interaction["BallsDexBot"]
+        self, interaction: discord.Interaction["AmericanDexBot"]
     ) -> tuple[str, discord.File, View]:
         # message content
         trade_content = ""

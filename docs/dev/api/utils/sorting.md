@@ -1,3 +1,3 @@
 # Sorting
 
-::: ballsdex.core.utils.sorting
+::: americandex.core.utils.sorting

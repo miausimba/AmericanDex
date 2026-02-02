@@ -1,3 +1,3 @@
 # Formatting
 
-::: ballsdex.core.utils.formatting
+::: americandex.core.utils.formatting

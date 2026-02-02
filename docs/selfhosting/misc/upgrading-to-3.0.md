@@ -1,7 +1,7 @@
-This guide will help you upgrade from 2.X to Ballsdex 3.0.
+This guide will help you upgrade from 2.X to Americandex 3.0.
 
 !!! warning
-    Ballsdex 3.0 brings a lot of breaking changes!
+    Americandex 3.0 brings a lot of breaking changes!
 
     If you have modifications or custom packages, you must remove them before upgrading. Once
     you have upgraded, you can look for the updated version of your packages.
@@ -45,14 +45,14 @@ This guide will help you upgrade from 2.X to Ballsdex 3.0.
 
     ```bash
     docker compose up -d postgres-db --wait && \
-        docker compose exec postgres-db pg_dump -U ballsdex ballsdex -f data-dump.sql && \
+        docker compose exec postgres-db pg_dump -U americandex americandex -f data-dump.sql && \
         docker compose cp postgres-db:data-dump.sql pre-migration-data-dump.sql
     ```
 
 === "Without Docker"
 
     ```bash
-    pg_dump -U ballsdex ballsdex -f pre-migration-data-dump.sql
+    pg_dump -U americandex americandex -f pre-migration-data-dump.sql
     ```
 
 Triple-check that there is a `pre-migration-data-dump.sql` file and that it's not empty!
@@ -80,21 +80,21 @@ Run the following commands to wipe a selection of tables, then create a new back
         docker compose run --rm migration python3 manage.py migrate auth zero && \
         docker compose run --rm migration python3 manage.py migrate contenttypes zero && \
         docker compose run --rm migration python3 manage.py migrate sessions zero && \
-        docker compose exec postgres-db pg_dump -U ballsdex ballsdex -f data-dump.sql && \
+        docker compose exec postgres-db pg_dump -U americandex americandex -f data-dump.sql && \
         docker compose cp postgres-db:data-dump.sql final-data-dump.sql
     ```
 
 === "Without Docker"
 
     ```bash
-    # activate your venv and export BALLSDEXBOT_DB_URL
+    # activate your venv and export AMERICANDEXBOT_DB_URL
     cd admin_panel
     python3 manage.py migrate admin zero
     python3 manage.py migrate auth zero
     python3 manage.py migrate contenttypes zero
     python3 manage.py migrate sessions zero
 
-    pg_dump -U ballsdex ballsdex -f final-data-dump.sql
+    pg_dump -U americandex americandex -f final-data-dump.sql
     ```
 
 You now have two files: `pre-migration-data-dump.sql` and `final-data-dump.sql`
@@ -133,7 +133,7 @@ docker compose down --volumes
         ```
     3.  Import your database dump
         ```bash
-        cat final-data-dump.sql | docker compose exec -T postgres-db psql -U ballsdex ballsdex
+        cat final-data-dump.sql | docker compose exec -T postgres-db psql -U americandex americandex
         ```
     4.  Rebuild the bot
         ```bash
@@ -160,7 +160,7 @@ docker compose down --volumes
         uv sync
         ```
         !!! note
-            Python 3.14 is required to run Ballsdex 3.0. If it's not installed on your system,
+            Python 3.14 is required to run Americandex 3.0. If it's not installed on your system,
             uv will install it for you.
     4.  Activate the new virtual environment
 
@@ -178,12 +178,12 @@ docker compose down --volumes
 
         === "Linux/macOS"
             ```bash
-            export BALLSDEXBOT_DB_URL=postgres://username:password@localhost:5432/database_name
+            export AMERICANDEXBOT_DB_URL=postgres://username:password@localhost:5432/database_name
             ```
         
         === "Windows (PowerShell)"
             ```ps1
-            $Env.BALLSDEXBOT_DB_URL = 'postgres://username:password@localhost:5432/database_name'
+            $Env.AMERICANDEXBOT_DB_URL = 'postgres://username:password@localhost:5432/database_name'
             ```
 
     6.  Run the migrations
@@ -193,7 +193,7 @@ docker compose down --volumes
 
 ## 5. Reconfigure the settings
 
-Ballsdex 3.0 does not use `config.yml` anymore for its configuration, instead it's all on the
+Americandex 3.0 does not use `config.yml` anymore for its configuration, instead it's all on the
 admin panel. You can still import your old settings.
 
 1.  [Create a local admin account](/selfhosting/admin-panel/getting-started/).

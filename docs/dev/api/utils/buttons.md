@@ -1,3 +1,3 @@
 # Buttons
 
-::: ballsdex.core.utils.buttons
+::: americandex.core.utils.buttons

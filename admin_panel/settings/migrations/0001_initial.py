@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
                     "plural_collectible_name",
                     models.TextField(default="countryballs", help_text="The plural name of your collectible"),
                 ),
-                ("bot_name", models.TextField(default="BallsDex", help_text="The name of your bot")),
+                ("bot_name", models.TextField(default="AmericanDex", help_text="The name of your bot")),
                 (
                     "balls_slash_name",
                     models.TextField(
@@ -118,7 +118,7 @@ class Migration(migrations.Migration):
                 (
                     "spawn_manager",
                     models.TextField(
-                        default="ballsdex.packages.countryballs.spawn.SpawnManager",
+                        default="americandex.packages.countryballs.spawn.SpawnManager",
                         help_text="Python path to a class that will handle spawn logic.",
                         validators=[
                             django.core.validators.RegexValidator(
@@ -137,7 +137,7 @@ class Migration(migrations.Migration):
                 (
                     "repository",
                     models.URLField(
-                        default="https://github.com/Ballsdex-Team/BallsDex-DiscordBot",
+                        default="https://github.com/Americandex-Team/AmericanDex-DiscordBot",
                         help_text="URL to the repository with the source code.",
                     ),
                 ),

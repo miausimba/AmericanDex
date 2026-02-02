@@ -28,7 +28,7 @@ class Settings(models.Model):
     prefix = models.CharField(help_text="Prefix for all text commands", max_length=10, default="b.")
     collectible_name = models.TextField(help_text="The singular name of your collectible", default="countryball")
     plural_collectible_name = models.TextField(help_text="The plural name of your collectible", default="countryballs")
-    bot_name = models.TextField(help_text="The name of your bot", default="BallsDex")
+    bot_name = models.TextField(help_text="The name of your bot", default="AmericanDex")
     balls_slash_name = models.TextField(
         help_text='Overrides "/balls" slash command',
         default="balls",
@@ -96,7 +96,7 @@ class Settings(models.Model):
     )
     spawn_manager = models.TextField(
         help_text="Python path to a class that will handle spawn logic.",
-        default="ballsdex.packages.countryballs.spawn.SpawnManager",
+        default="americandex.packages.countryballs.spawn.SpawnManager",
         validators=(RegexValidator(PYTHON_PATH_RE, message="This is not a valid Python path."),),
     )
 
@@ -107,7 +107,7 @@ class Settings(models.Model):
     )
     repository = models.URLField(
         help_text="URL to the repository with the source code.",
-        default="https://github.com/Ballsdex-Team/BallsDex-DiscordBot",
+        default="https://github.com/Americandex-Team/AmericanDex-DiscordBot",
     )
     discord_invite = models.URLField(
         help_text="Invite to a Discord server that you own. Shown in /about and to blacklisted users.",

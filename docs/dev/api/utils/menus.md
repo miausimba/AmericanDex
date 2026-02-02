@@ -1,7 +1,7 @@
 # Menus and paginators
 
-::: ballsdex.core.utils.menus.menus
-::: ballsdex.core.utils.menus.source
+::: americandex.core.utils.menus.menus
+::: americandex.core.utils.menus.source
     options:
         members:
             - Source
@@ -9,5 +9,5 @@
             - ChunkedListSource
             - TextSource
             - ModelSource
-::: ballsdex.core.utils.menus.formatter
-::: ballsdex.core.utils.menus.utils
+::: americandex.core.utils.menus.formatter
+::: americandex.core.utils.menus.utils

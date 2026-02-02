@@ -4,9 +4,9 @@ hide:
   - navigation
 ---
 
-# Ballsdex - Discord bot
+# Americandex - Discord bot
 
-This documentation will contain both documentation and resources on how to use the Ballsdex Discord Bot, as well as resources for self-hosting it.
+This documentation will contain both documentation and resources on how to use the Americandex Discord Bot, as well as resources for self-hosting it.
 
 ---
 
