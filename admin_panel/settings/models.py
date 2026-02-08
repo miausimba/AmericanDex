@@ -30,8 +30,8 @@ class Settings(models.Model):
     plural_collectible_name = models.TextField(help_text="The plural name of your collectible", default="countryballs")
     bot_name = models.TextField(help_text="The name of your bot", default="AmericanDex")
     balls_slash_name = models.TextField(
-        help_text='Overrides "/balls" slash command',
-        default="balls",
+        help_text='Overrides "/american" slash command',
+        default="american",
         validators=(RegexValidator(SLASH_COMMAND_RE, message="Invalid slash command name."),),
     )
     site_base_url = models.URLField(

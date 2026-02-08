@@ -137,7 +137,7 @@ admin panel login page. Login using the credentials you have set before.
 
 2. You can change "Collectible name" which will replace the word "countryball" in the bot. For instance if you set "rock", the bot will say "A wild rock spawned!" 
 
-3. "Bot name" is used in various places like `/about` or `/balls completion`.
+3. "Bot name" is used in various places like `/about` or `/american completion`.
 
 4. The "/about" section defines a few traits of the `/about` command. Feel free to change the description and set a Discord invite.
    You must also write your terms of service and a privacy policy and place the link to them (can be a Google Docs).
