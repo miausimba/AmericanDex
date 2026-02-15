@@ -1,4 +1,4 @@
-Americandex comes with commands to help moderators and administrators manage the bot.
+Universedex comes with commands to help moderators and administrators manage the bot.
 
 ## Using admin commands
 
@@ -102,7 +102,7 @@ object, then grant these groups to users. For your convenience, two groups are p
 "Administrator" and "Staff".
 
 !!! tip
-    If you were using Americandex v2, these groups will mostly reflect the permissions granted by
+    If you were using Universedex v2, these groups will mostly reflect the permissions granted by
     `root-role-ids` and `admin-role-ids` respectively.
 
 ??? note "Default groups and permissions"

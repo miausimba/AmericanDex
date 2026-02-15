@@ -1,7 +1,7 @@
 # Menus and paginators
 
-::: americandex.core.utils.menus.menus
-::: americandex.core.utils.menus.source
+::: universedex.core.utils.menus.menus
+::: universedex.core.utils.menus.source
     options:
         members:
             - Source
@@ -9,5 +9,5 @@
             - ChunkedListSource
             - TextSource
             - ModelSource
-::: americandex.core.utils.menus.formatter
-::: americandex.core.utils.menus.utils
+::: universedex.core.utils.menus.formatter
+::: universedex.core.utils.menus.utils

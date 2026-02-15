@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest an idea for Americandex
+description: Suggest an idea for Universedex
 labels:
   - feature request
 body:
@@ -10,9 +10,9 @@ body:
 
         Before filling this, try to contact us about the idea you have.
 
-        ### If you are using the official Americandex bot
+        ### If you are using the official Universedex bot
 
-        Join the [official Discord server](https://discord.gg/americandex) and create a post in the
+        Join the [official Discord server](https://discord.gg/universedex) and create a post in the
         [`suggestions` forum](https://discord.com/channels/1049118743101452329/1049164568066281472).
 
         ### If you are hosting your own bot
@@ -28,9 +28,9 @@ body:
     id: selfhosting
     attributes:
       label: Self-hosting
-      description: Are you using the official Americandex bot or hosting your own instance?
+      description: Are you using the official Universedex bot or hosting your own instance?
       options:
-        - Official Americandex bot
+        - Official Universedex bot
         - Self-hosting
     validations:
       required: true

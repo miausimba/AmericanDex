@@ -3,7 +3,7 @@ from django.contrib import admin
 from settings.models import settings
 
 
-class AmericandexAdminSite(admin.AdminSite):
+class UniversedexAdminSite(admin.AdminSite):
     site_url = None  # type: ignore
     final_catch_all_view = False
 

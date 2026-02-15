@@ -3,7 +3,7 @@ admin_panel/static
 pgbackups
 config.yml
 .env
-americandex.log*
+universedex.log*
 venv
 .venv
 .python-version

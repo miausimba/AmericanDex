@@ -1,6 +1,6 @@
 # Migrating to WSL (Windows)
 
-As Docker for Windows has a LOT of errors that are hardly fixable, it is now discouraged to host Americandex on Windows. The recommended way is to host on Linux, which is possible on Windows with WSL.
+As Docker for Windows has a LOT of errors that are hardly fixable, it is now discouraged to host Universedex on Windows. The recommended way is to host on Linux, which is possible on Windows with WSL.
 
 This guide will show how to migrate your bot to WSL and ditch Docker for Windows.
 
@@ -15,13 +15,13 @@ Once this step is complete and you have verified the contents of your database d
 
 ## 2. Configure WSL
 
-Follow [the first part of the new tutorial](../installation/installing-americandex.md) to install WSL and Docker. Don't forget the last step to test and confirm that your new Docker works.
+Follow [the first part of the new tutorial](../installation/installing-universedex.md) to install WSL and Docker. Don't forget the last step to test and confirm that your new Docker works.
 
 ## 3. Locate the bot's folder
 
 You don't need to clone the bot again, WSL is able to access your Windows files.
 
-Open your AmericanDex-DiscordBot folder in the file explorer, then in the explorer bar (top left), click and write `wsl` (instead of `cmd` or `powershell` this time). This will open a terminal inside WSL, where your files are accessible.
+Open your UniverseDex-DiscordBot folder in the file explorer, then in the explorer bar (top left), click and write `wsl` (instead of `cmd` or `powershell` this time). This will open a terminal inside WSL, where your files are accessible.
 
 Every time you need to type shell commands for the bot, you need to do the step above.
 
@@ -31,14 +31,14 @@ Every time you need to type shell commands for the bot, you need to do the step 
     **Do NOT start the bot yet!** It will mess everything up by re-creating an empty database
 
 1. Type `docker compose up -d postgres-db` to only start the database and nothing else.
-2. Run `cat data-dump.sql | docker compose exec -T psql -U americandex americandex`
+2. Run `cat data-dump.sql | docker compose exec -T psql -U universedex universedex`
 3. This will print a lot of lines such as `INSERT` or `ALTER TABLE`. Check the logs to ensure no errors were produced before continuing.
 
 ## 5. Build and start the bot
 
 Run `docker compose build` to build the image.
 
-Then follow [this section](../installation/installing-americandex.md#6-run-the-bot) to start your bot. You shouldn't need any configuration, the bot will pick up your old files and resume just like before.
+Then follow [this section](../installation/installing-universedex.md#6-run-the-bot) to start your bot. You shouldn't need any configuration, the bot will pick up your old files and resume just like before.
 
 ## 6. Using Docker on Linux
 
@@ -46,7 +46,7 @@ There is no more Docker Destkop to view your containers, everything goes through
 
 - Start your bot: `docker compose up -d`
 - Stop your bot: `docker compose down`
-- Check if your bot is running: `docker compose ps` (look for a line that says `americandex-discordbot-bot-1`)
+- Check if your bot is running: `docker compose ps` (look for a line that says `universedex-discordbot-bot-1`)
 - View logs: `docker compose logs`
 - View logs from the bot only: `docker compose logs bot`
 - View logs from the admin panel: `docker compose logs admin-panel`

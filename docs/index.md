@@ -4,9 +4,9 @@ hide:
   - navigation
 ---
 
-# Americandex - Discord bot
+# Universedex - Discord bot
 
-This documentation will contain both documentation and resources on how to use the Americandex Discord Bot, as well as resources for self-hosting it.
+This documentation will contain both documentation and resources on how to use the Universedex Discord Bot, as well as resources for self-hosting it.
 
 ---
 

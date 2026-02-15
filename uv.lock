@@ -169,7 +169,7 @@ wheels = [
 ]
 
 [[package]]
-name = "americandex"
+name = "universedex"
 version = "3.0.2"
 source = { editable = "." }
 dependencies = [

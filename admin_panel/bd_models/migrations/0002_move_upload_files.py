@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 MEDIA = Path("./media")
 OLD_STATIC = Path("../static/uploads")
-CORE_SRC = Path("../americandex/core/image_generator/src")
+CORE_SRC = Path("../universedex/core/image_generator/src")
 
 DEFAULT_ASSETS = ["capitalist.png", "communist.png", "democracy.png", "dictatorship.png", "shiny.png", "union.png"]
 
@@ -27,13 +27,13 @@ def _replace_text(column: str, reverse: bool = False) -> "dict[str, Expression]"
         r = Case(
             When(
                 **{f"{column}__in": DEFAULT_ASSETS},
-                then=Concat(Value("/americandex/core/image_generator/src/", output_field=ImageField()), F(column)),
+                then=Concat(Value("/universedex/core/image_generator/src/", output_field=ImageField()), F(column)),
             ),
             default=Concat(Value("/static/uploads/", output_field=ImageField()), F(column)),
         )
     else:
         r = Replace(
-            Replace(F(column), Value("/americandex/core/image_generator/src/"), Value("")),
+            Replace(F(column), Value("/universedex/core/image_generator/src/"), Value("")),
             Value("/static/uploads/", output_field=ImageField()),
             Value("", output_field=ImageField()),
         )
@@ -44,7 +44,7 @@ def _check_reserved_names():
     for file in OLD_STATIC.glob("*"):
         if file.name in DEFAULT_ASSETS:
             raise ValueError(
-                f"The file {file.absolute()} has a reserved name and will conflict with Americandex "
+                f"The file {file.absolute()} has a reserved name and will conflict with Universedex "
                 "prodivded assets. You need to delete it or move it before proceeding. "
                 "Once this is done, reupload the asset via the new admin panel."
             )
@@ -71,7 +71,7 @@ def move_forwards(apps: "Apps", schema_editor: "BaseDatabaseSchemaEditor"):
         if file.name == ".gitkeep":
             continue
         file.rename(MEDIA / file.name)
-    # the files in /americandex/core/image_generator/src/ will be moved by git
+    # the files in /universedex/core/image_generator/src/ will be moved by git
 
 
 def move_backwards(apps: "Apps", schema_editor: "BaseDatabaseSchemaEditor"):

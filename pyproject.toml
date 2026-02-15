@@ -1,5 +1,5 @@
 [project]
-name = "americandex"
+name = "universedex"
 version = "3.0.2"
 description = "Customizable Discord bot to collect and trade countryballs."
 authors = []
@@ -61,13 +61,13 @@ docs = [
 ]
 
 [project.scripts]
-americandex = "americandex.__main__:main"
+universedex = "universedex.__main__:main"
 
 [tool.hatch.build.targets.sdist]
 exclude = ["result"]
 
 [tool.hatch.build.targets.wheel]
-only-include = ["americandex", "admin_panel"]
+only-include = ["universedex", "admin_panel"]
 sources = ["admin_panel"]
 
 [build-system]
@@ -97,7 +97,7 @@ exclude = ["admin_panel/admin_panel/settings/*"]
 
 [tool.ruff.lint.isort]
 # list all django modules
-known-first-party = ["americandex", "bd_models", "admin_panel", "preview", "settings", "users"]
+known-first-party = ["universedex", "bd_models", "admin_panel", "preview", "settings", "users"]
 split-on-trailing-comma = false
 
 [tool.pyright]

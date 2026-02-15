@@ -4,9 +4,9 @@ If you want to leverage your experience and be able to access your admin panel f
 
 ### Pre-requirements
 
-#### Americandex hosted on an online Linux server
+#### Universedex hosted on an online Linux server
 
-It is **extremely** important that you do not host Americandex or the website on your own personal network. This would require you to open your firewall and expose your entire family to tons of dangers. **DO NOT DO THIS** and look for a provider, there are even free options.
+It is **extremely** important that you do not host Universedex or the website on your own personal network. This would require you to open your firewall and expose your entire family to tons of dangers. **DO NOT DO THIS** and look for a provider, there are even free options.
 
 I recommend checking [this page](https://docs.discord.red/en/stable/host-list.html) for VPS and server recommendations.
 
@@ -18,9 +18,9 @@ You must have a domain name to hide your IP. This is pretty cheap honestly, I re
 
 Once you got this, you should also use [Cloudflare](https://www.cloudflare.com/) as a DNS and proxy provider, it's free, faster than the default DNS, and comes with many good features. Your server's IP will be hidden thanks to that.
 
-#### Docker-managed Americandex
+#### Docker-managed Universedex
 
-In this tutorial, we will only cover Docker installations of Americandex.
+In this tutorial, we will only cover Docker installations of Universedex.
 
 If you are not using Docker, you will need to configure nginx yourself to serve the static files.
 
@@ -73,9 +73,9 @@ Distributions have different firewall programs, but the most common one is `ufw`
 
 If you do not have `ufw` on your system, look up what program is recommended for your distribution and allow ports 22 and 80.
 
-## 3. Configuring the Americandex admin panel
+## 3. Configuring the Universedex admin panel
 
-We're slowly getting there! Now we just need to configure the last few bits on Americandex's side.
+We're slowly getting there! Now we just need to configure the last few bits on Universedex's side.
 
 ### Configure the production settings
 

@@ -21,14 +21,14 @@ Then you must make a dump of the database.
 
     ```bash
     docker compose up -d postgres-db --wait && \
-        docker compose exec postgres-db pg_dump -U americandex americandex -f data-dump.sql && \
+        docker compose exec postgres-db pg_dump -U universedex universedex -f data-dump.sql && \
         docker compose cp postgres-db:data-dump.sql .
     ```
 
 === "Without Docker"
 
     ```bash
-    pg_dump -U americandex americandex -f data-dump.sql
+    pg_dump -U universedex universedex -f data-dump.sql
     ```
 
 This will generate a file `data-dump.sql` which you need to preserve, containing all the data.
@@ -40,13 +40,13 @@ This will generate a file `data-dump.sql` which you need to preserve, containing
     ```bash
     docker compose up -d postgres-db --wait && \
         cat data-dump.sql | \
-        docker compose exec -T postgres-db psql -U americandex americandex
+        docker compose exec -T postgres-db psql -U universedex universedex
     ```
 
 === "Without Docker"
 
     ```bash
-    psql -U americandex americandex -f data-dump.sql
+    psql -U universedex universedex -f data-dump.sql
     ```
 
 This will print a lot of lines such as `INSERT` or `ALTER TABLE`. Check the logs to ensure no errors were produced.
@@ -62,7 +62,7 @@ This will print a lot of lines such as `INSERT` or `ALTER TABLE`. Check the logs
 
 If you accidentally deleted something important, or your database became corrupted, you can restore a backup. They are located in the `pgbackups` folder.
 
-First, you must [wipe the database](#wiping-the-database). Then, locate the backup file you want to use (we will assume it's named `americandex-latest.sql.gz` and follow the instructions according to your OS.
+First, you must [wipe the database](#wiping-the-database). Then, locate the backup file you want to use (we will assume it's named `universedex-latest.sql.gz` and follow the instructions according to your OS.
 
 ### macOS/Linux
 
@@ -70,32 +70,32 @@ First, you must [wipe the database](#wiping-the-database). Then, locate the back
 
     ```bash
     docker compose up -d postgres-db && \
-        zcat americandex-latest.sql.gz | \
-        docker compose exec -T postgres-db psql -U americandex americandex
+        zcat universedex-latest.sql.gz | \
+        docker compose exec -T postgres-db psql -U universedex universedex
     ```
 
 === "Without Docker"
 
     ```bash
-    zcat americandex-latest.sql.gz | psql -U americandex americandex
+    zcat universedex-latest.sql.gz | psql -U universedex universedex
     ```
 
 ### Windows
 
-Open the `americandex-latest.sql.gz` using [7zip](https://www.7-zip.org/) and extract the resulting `.sql` file. Move it to your bot's folder, then:
+Open the `universedex-latest.sql.gz` using [7zip](https://www.7-zip.org/) and extract the resulting `.sql` file. Move it to your bot's folder, then:
 
 === "With Docker"
 
     ```bash
     docker compose up -d postgres-db && \
         cat data-dump.sql | \
-        docker compose exec -T postgres-db psql -U americandex americandex
+        docker compose exec -T postgres-db psql -U universedex universedex
     ```
 
 === "Without Docker"
 
     ```bash
-    psql -U americandex americandex -f data-dump.sql
+    psql -U universedex universedex -f data-dump.sql
     ```
 
 ## Wiping the database
@@ -111,7 +111,7 @@ If you need to reset the PostgreSQL database (importing data, restoring a backup
 === "Without Docker"
 
     ```bash
-    psql -U americandex americandex -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
+    psql -U universedex universedex -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
     ```
 
 !!! danger

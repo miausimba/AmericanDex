@@ -1,6 +1,6 @@
 # Transformers
 
-::: americandex.core.utils.transformers
+::: universedex.core.utils.transformers
     options:
         inherited_members: true
         members:

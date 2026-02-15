@@ -1,3 +1,3 @@
 # Formatting
 
-::: americandex.core.utils.formatting
+::: universedex.core.utils.formatting

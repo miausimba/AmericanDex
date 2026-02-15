@@ -1,3 +1,3 @@
 # Buttons
 
-::: americandex.core.utils.buttons
+::: universedex.core.utils.buttons

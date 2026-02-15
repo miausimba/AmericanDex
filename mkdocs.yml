@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: Americandex Discord bot
-site_url: https://wiki.americandex.com
-repo_url: https://github.com/Americandex-Team/AmericanDex-DiscordBot
+site_name: Universedex Discord bot
+site_url: https://wiki.universedex.com
+repo_url: https://github.com/Universedex-Team/UniverseDex-DiscordBot
 
 copyright: Copyright &copy; 2022 - 2026 Auguste "El Laggron" Charpentier
 
@@ -51,8 +51,8 @@ nav:
   - Selfhosting:
       - selfhosting/index.md
       - Installation:
-          - selfhosting/installation/installing-americandex.md
-          - selfhosting/installation/installing-americandex-no-docker.md
+          - selfhosting/installation/installing-universedex.md
+          - selfhosting/installation/installing-universedex-no-docker.md
       - Admin panel:
           - selfhosting/admin-panel/getting-started.md
           - selfhosting/admin-panel/exposing-to-internet.md
@@ -142,4 +142,4 @@ extra_javascript:
 watch:
   - ./docs
   - ./admin_panel
-  - ./americandex
+  - ./universedex

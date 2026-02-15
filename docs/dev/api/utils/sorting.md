@@ -1,3 +1,3 @@
 # Sorting
 
-::: americandex.core.utils.sorting
+::: universedex.core.utils.sorting

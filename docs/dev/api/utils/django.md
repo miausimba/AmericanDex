@@ -1,3 +1,3 @@
 # Database
 
-::: americandex.core.utils.django
+::: universedex.core.utils.django

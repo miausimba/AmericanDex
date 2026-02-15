@@ -14,7 +14,7 @@ import dj_database_url
 
 
 def discover_extra_packages() -> list[str]:
-    file = os.environ.get("AMERICANDEXBOT_EXTRA_TOML")
+    file = os.environ.get("UNIVERSEDEXBOT_EXTRA_TOML")
     if not file:
         return []
     try:
@@ -22,7 +22,7 @@ def discover_extra_packages() -> list[str]:
             contents = tomllib.load(f)
     except FileNotFoundError:
         return []
-    packages: list = contents.get("americandex", {}).get("packages", [])
+    packages: list = contents.get("universedex", {}).get("packages", [])
     return [x["path"] for x in packages if x["enabled"]]
 
 
@@ -33,7 +33,7 @@ SECRET_KEY = None
 
 # WARNING: DO NOT ADD EXTERNAL HOSTS HERE!!
 # If you want to expose your admin panel online, please follow this tutorial:
-# https://github.com/Americandex-Team/AmericanDex-DiscordBot/wiki/Serving-the-admin-panel-online
+# https://github.com/Universedex-Team/UniverseDex-DiscordBot/wiki/Serving-the-admin-panel-online
 # THIS HAS SECURITY IMPLICATIONS, ENABLES PRIVILEGE ESCALATION AND REMOTE CODE EXECUTION
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     "django_admin_action_forms",
     "django_admin_inline_paginator",
     "social_django",
-    "admin_panel.apps.AmericandexAdminConfig",
+    "admin_panel.apps.UniversedexAdminConfig",
     "users",
     "bd_models",
     "preview",
@@ -98,7 +98,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "admin_panel.wsgi.application"
 
 # Logging
-if env_log_dir := os.environ.get("AMERICANDEX_LOG_DIR"):
+if env_log_dir := os.environ.get("UNIVERSEDEX_LOG_DIR"):
     log_dir = pathlib.Path(env_log_dir)
 else:
     log_dir = pathlib.Path("./logs")
@@ -128,7 +128,7 @@ LOGGING = {
         "file": {
             "level": logging.INFO,
             "class": "logging.handlers.RotatingFileHandler",
-            "filename": log_dir / "americandex.log",
+            "filename": log_dir / "universedex.log",
             "maxBytes": 8**7,
             "backupCount": 8,
             "formatter": "basic",
@@ -162,7 +162,7 @@ if "startbot" in sys.argv:
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {"default": dj_database_url.config("AMERICANDEXBOT_DB_URL")}
+DATABASES = {"default": dj_database_url.config("UNIVERSEDEXBOT_DB_URL")}
 
 
 # Password validation
